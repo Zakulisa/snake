@@ -29,18 +29,18 @@ code {
 .cell {
   height: 30px;
   width: 30px;
-  border: 1px solid black;
+  border: 1px solid gray;
   box-sizing: border-box;
 }
 
 .empty {
-
+  background-color: lightpink;
 }
 
 .snake {
-  background-color: blue;
+  background-color: green;
 }
 
 .food {
-  background-color: green;
+  background-color: brown;
 }
