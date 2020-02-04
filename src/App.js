@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+const getClassName = type => ({
+  e: 'empty',
+  s: 'snake',
+  f: 'food',
+}[type])
+
+const Cell = ({ type }) => <div className={`cell ${getClassName(type)}`} />
+
+// const initialSnake = [[0, 0], [0, 1], [0, 2]]
+
+const field = [
+  ["s","s","s","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","f","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+  ["e","e","e","e","e","e","e","e","e","e"],
+]
 
 function App() {
+  const [state, setState] = useState({
+    initialized: false,
+  })
+
+  const initialize = () => setState({ initialized: true })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="field">
+        {state.initialized ? (
+          field.map((row, x) => row.map((cell, y) => <Cell type={cell} key={`${x}${y}`} />))
+        ) : (
+          <input type="button" value="start" onClick={initialize}/>
+        )}
+      </div>
     </div>
   );
 }

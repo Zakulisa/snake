@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 300px;
+}
+
+.cell {
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.empty {
+
+}
+
+.snake {
+  background-color: blue;
+}
+
+.food {
+  background-color: green;
+}
